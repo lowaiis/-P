@@ -1,0 +1,46 @@
+import smtplib
+
+def send_mail(myMail, toMail, password, message):
+	try:
+		server = smtplib.SMTP('smtp.gmail.com:587')
+		server.ehlo()
+		print("---connecting, hello.---")
+		server.starttls()
+		print('-connected-')
+		server.login(myMail,password)
+		print('Logged In')
+		server.sendmail(myMail,toMail,message)
+		server.quit()
+		print('success, sent')
+		
+	except:
+		print('error, not sent')
+i = 1
+
+print(
+
+'''
+		Hello, this program basically spams 10 emails from my_mail to to_mail.
+		
+		Ideally, will want to include:
+			- A gui
+			- Ability to send complex messages 
+			- block IP address
+			- Send as important ( not spam )
+			
+
+
+
+'''
+
+)
+my_mail = input('Input Your Email:')
+password = input("Input Your email's password: ")
+to_mail = input('Input desired targets email:"')
+subject = input('Input your desired subject heading:')
+message = input('Input your message')
+	
+while i<10:
+	send_mail( my_mail, to_mail, password, subject, message)
+	i+=1
+	
