@@ -1,0 +1,38 @@
+import bs4 as bs
+import urllib.request
+
+sauce = urllib.request.urlopen('w').read()
+
+soup = bs.BeautifulSoup(sauce,'lxml')
+
+for url in soup.find_all('a'):
+	print(url)
+	
+body = soup.body
+print(body.p.text)
+
+
+
+
+
+
+
+
+
+
+
+
+#beautiful soup tutorial
+
+'''
+
+soup is the object
+
+methods that interact with soup:
+
+find_all('element')
+
+
+
+
+'''
